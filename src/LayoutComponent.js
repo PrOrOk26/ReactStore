@@ -23,34 +23,34 @@ class ConnectedLayoutComponent extends Component {
     const { children, history } = this.props
 
     return (
-        <div className="navBar">
-            <Menu>
-              <Menu.Item>
-                <Link to="/market">
-                <Header as='h2' icon='shipping fast' content='E-store' />
-                </Link>
-              </Menu.Item>
+      <div className="navBar">
+        <Menu>
+          <Menu.Item>
+            <Link to="/market">
+              <Header as='h2' icon='shipping fast' content='E-store' />
+            </Link>
+          </Menu.Item>
 
-              <Menu.Item position="right">
+          <Menu.Item position="right">
 
-              <Button as='div' labelPosition='right'>
-      <Button color="facebook" icon="cart" onClick={() => history.push('/cart')}>
-      </Button>
-      <Label basic color='blue' pointing='left' size="tiny">
-        {this.props.productsInCart}
-      </Label>
-    </Button>
-              </Menu.Item>
-            </Menu>
-            {children}
-        </div>
+            <Button as='div' labelPosition='right'>
+              <Button color="facebook" icon="cart" onClick={() => history.push('/cart')}>
+              </Button>
+              <Label basic color='blue' pointing='left' size="tiny">
+                {this.props.productsInCart}
+              </Label>
+            </Button>
+          </Menu.Item>
+        </Menu>
+        {children}
+      </div>
     )
   }
-  }
-  
-  ConnectedLayoutComponent.propTypes = {
-    children: PropTypes.node,
-  }
+}
+
+ConnectedLayoutComponent.propTypes = {
+  children: PropTypes.node,
+}
 
 let LayoutComponentWithoutRouter = connect(mapStateToProps)(ConnectedLayoutComponent)
 const LayoutComponent = withRouter(LayoutComponentWithoutRouter)

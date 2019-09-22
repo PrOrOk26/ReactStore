@@ -8,15 +8,15 @@ class LoginComponent extends Component {
   render() {
     return (
       <div className="login-font">
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 400 }}>
-        <Header as='h2' color='blue' textAlign='center'>
-          Sign in to your account
-        </Header>
-      <LoginForm {...this.props}/>
-      </Grid.Column>
-    </Grid>
-    </div>
+        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+          <Grid.Column style={{ maxWidth: 400 }}>
+            <Header as='h2' color='blue' textAlign='center'>
+              Sign in to your account
+            </Header>
+            <LoginForm {...this.props} />
+          </Grid.Column>
+        </Grid>
+      </div>
     )
   }
 }
