@@ -22,7 +22,7 @@ function MainApp() {
   return (
     <Router>
       <LayoutComponent>
-        <Route exact path="/" render={() => (
+        <Route strict path="/" render={() => (
           isAuthenticated() ? (
             <Redirect to="/market" />
           ) : (
@@ -30,9 +30,9 @@ function MainApp() {
             )
         )}
         />
-        <Route path="/login" component={LoginComponent} render={props => <LoginComponent {...props} />} />
-        <Route path="/market" component={MarketComponent} render={props => <MarketComponent {...props} />} />
-        <Route path="/cart" component={CartComponent} render={props => <CartComponent {...props} />} />
+        <Route strict path="/login" component={LoginComponent} render={props => <LoginComponent {...props} />} />
+        <Route strict path="/market" component={MarketComponent} render={props => <MarketComponent {...props} />} />
+        <Route strict path="/cart" component={CartComponent} render={props => <CartComponent {...props} />} />
       </LayoutComponent>
     </Router>
   );

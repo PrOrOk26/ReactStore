@@ -43,13 +43,13 @@ class ConnectedMarketComponent extends Component {
                                             floated="left"
                                             onClick={() => this.props.addProductToCart(product)}>
                                             Add to cart
-                        </Button>) :
+                                        </Button>) :
                                         (
-                                            <Button primary
+                                        <Button primary
                                                 floated="left"
                                                 onClick={() => this.props.history.push('/cart')}>
                                                 Go to cart
-                        </Button>)
+                                        </Button>)
                                     }
                                     <a>
                                         <Icon name='dollar' floated="right">

@@ -18,6 +18,11 @@ const mapStateToProps = (state) => {
 
 class ConnectedLayoutComponent extends Component {
 
+  handleLogOut() {
+    window.localStorage.removeItem("isLoggedIn")
+    this.props.history.push('/login')
+  }
+
   render() {
 
     const { children, history } = this.props
@@ -30,9 +35,8 @@ class ConnectedLayoutComponent extends Component {
               <Header as='h2' icon='shipping fast' content='E-store' />
             </Link>
           </Menu.Item>
-
           <Menu.Item position="right">
-
+            <Button style={{ marginRight: "5px" }} onClick={() => this.handleLogOut()}>Log out</Button>
             <Button as='div' labelPosition='right'>
               <Button color="facebook" icon="cart" onClick={() => history.push('/cart')}>
               </Button>
