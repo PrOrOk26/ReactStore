@@ -7,7 +7,7 @@ import {
 
 import LoginComponent from "./login/LoginComponent";
 import MarketComponent from "./market/MarketComponent";
-import LayoutComponent from "./LayoutComponent";
+import LayoutComponent from "./navigation/LayoutComponent";
 import CartComponent from "./cart/CartComponent"
 
 import './MainApp.css';
@@ -26,7 +26,7 @@ function MainApp() {
           isAuthenticated() ? (
             <Redirect to="/market" />
           ) : (
-              <Redirect to="/login" />
+            <Redirect to="/login" />
             )
         )}
         />

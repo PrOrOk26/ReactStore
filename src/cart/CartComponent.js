@@ -4,6 +4,8 @@ import { removeProductFromCart } from '../actions/index'
 import { Icon, Grid, Button, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+import './cart.css'
+
 
 const mapStateToProps = state => {
     return {
@@ -28,12 +30,12 @@ class ConnectedCartComponent extends Component {
         const cart = this.props.cart
 
         return (
-            <div>
+            <div className="container">
+                <h1>Cart</h1>
                 {
                 cart.length !== 0 
                 ? (
                 <Grid columns={1}>
-                    <h2>Cart</h2>
                 {cart.map(product => (
                     <Grid.Column key={product.productId}>
                     <Segment>
