@@ -1,9 +1,41 @@
 import React, { Component } from 'react'
 import SearchBar from './SearchBarComponent'
 
-class NavigationBarComponent extends Component {
+import { connect } from 'react-redux'
+import { withRouter } from "react-router"
+import { Link } from 'react-router-dom'
+
+import { 
+  Navbar, 
+  Nav
+} from 'react-bootstrap'
+import {
+  Button,
+  Header,
+  Label
+} from 'semantic-ui-react'
+
+import './navigation.css'
+
+const mapStateToProps = (state) => {
+  return {
+    productsInCart: state.cart.length
+  }
+}
+
+
+
+class ConnectedNavigationBarComponent extends Component {
+
+    handleLogOut() {
+        window.localStorage.removeItem("isLoggedIn")
+        this.props.history.push('/login')
+    }
 
     render() {
+
+        const history = this.props.history
+
         return (
             <Navbar bg="light" expand="lg">
                 <Link to="/market">
@@ -30,4 +62,7 @@ class NavigationBarComponent extends Component {
     }
 }
 
-export default NavigationBarComponent;
+
+const NavigationBar = withRouter(connect(mapStateToProps)(ConnectedNavigationBarComponent))
+
+export default NavigationBar;
