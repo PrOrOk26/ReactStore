@@ -9,15 +9,14 @@ import "./market.css"
 
 const mapStateToProps = state => {
     return {
-        products: state.products,
-        cart: state.cart
+        products: state.products
     }
 }
 
 class ConnectedMarketComponent extends Component {
 
-    isProductInCart(product) {
-        return this.props.cart.includes(product)
+    isProductInCart(productId) {
+        return this.props.products.find((product) => product.productId === productId).isInCart
     }
 
     render() {
@@ -26,7 +25,7 @@ class ConnectedMarketComponent extends Component {
                 <Grid columns={3}>
                     {this.props.products.map(product => (
                         <ProductCard product={product}
-                                     isInCart={this.isProductInCart(product)}
+                                     isInCart={this.isProductInCart(product.productId)}
                                      key={product.productId}
                         />
                     ))}

@@ -5,14 +5,14 @@ import { connect } from 'react-redux'
 
 const mapDispatchToProps = dispatch => {
     return {
-        removeProductFromCart: product => dispatch(removeProductFromCart(product))
+        removeProductFromCart: productId => dispatch(removeProductFromCart(productId))
     }
 }
 
 class ConnectedCartProduct extends Component {
 
-    handleRemove = (product) => {
-        this.props.removeProductFromCart(product)
+    handleRemove = (productId) => {
+        this.props.removeProductFromCart(productId)
     }
 
     render() {
@@ -22,7 +22,7 @@ class ConnectedCartProduct extends Component {
             <Grid.Column key={productId}>
                 <Segment>
                     <Grid.Column>
-                        <Button icon="delete" floated="right" size="tiny" onClick={() => this.handleRemove(this.props.product)}></Button>
+                        <Button icon="delete" floated="right" size="tiny" onClick={() => this.handleRemove(productId)}></Button>
                         {productName}
                     </Grid.Column>
                     <Icon name='dollar' floated="right">

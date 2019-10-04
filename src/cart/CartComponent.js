@@ -10,7 +10,7 @@ import './cart.css'
 
 const mapStateToProps = state => {
     return {
-        cart: state.cart
+        cart: state.products.filter((product) => product.isInCart)
     }
 }
 

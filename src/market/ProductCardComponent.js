@@ -14,7 +14,7 @@ import './market.css'
 
 const mapDispatchToProps = dispatch => {
     return {
-        addProductToCart: product => dispatch(addProductToCart(product))
+        addProductToCart: productId => dispatch(addProductToCart(productId))
     }
 }
 
@@ -36,7 +36,7 @@ class ConnectedProductCard extends Component {
                         {!this.props.isInCart ? (
                             <Button primary
                                 floated="left"
-                                onClick={() => this.props.addProductToCart(product)}>
+                                onClick={() => this.props.addProductToCart(product.productId)}>
                                 Add to cart
                                         </Button>) :
                             (

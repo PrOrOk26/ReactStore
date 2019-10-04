@@ -19,7 +19,7 @@ import './navigation.css'
 
 const mapStateToProps = (state) => {
   return {
-    productsInCart: state.cart.length
+    productsInCart: state.products.filter((product) => product.isInCart).length
   }
 }
 
