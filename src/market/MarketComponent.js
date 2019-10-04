@@ -16,16 +16,19 @@ const mapStateToProps = state => {
 
 class ConnectedMarketComponent extends Component {
 
+    isProductInCart(product) {
+        return this.props.cart.includes(product)
+    }
+
     render() {
         return (
             <div className="product-grid">
                 <Grid columns={3}>
                     {this.props.products.map(product => (
-                        <Grid.Column key={product.productId}>
-                            <ProductCard product={product}
-                                isInCart={this.props.cart.includes(product)}
-                            />
-                        </Grid.Column>
+                        <ProductCard product={product}
+                                     isInCart={this.isProductInCart(product)}
+                                     key={product.productId}
+                        />
                     ))}
 
                 </Grid>

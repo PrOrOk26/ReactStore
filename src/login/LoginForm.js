@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Button, Form, Segment } from 'semantic-ui-react'
-import { Redirect } from 'react-router-dom'
+import { withRouter } from "react-router"
 
 
-class LoginForm extends Component {
+class UnboundLoginForm extends Component {
 
   state = {
     login: "",
@@ -77,7 +77,7 @@ class LoginForm extends Component {
   render() {
 
     return (
-      <div>
+      <>
         <Form size='large'
           onSubmit={this.handleSubmit}>
           <Segment stacked>
@@ -106,11 +106,11 @@ class LoginForm extends Component {
         </Button>
           </Segment>
         </Form>
-      </div>
+      </>
 
     );
   }
 }
 
-
+const LoginForm = withRouter(UnboundLoginForm)
 export default LoginForm;

@@ -13,7 +13,7 @@ class LoginComponent extends Component {
             <Header as='h2' color='blue' textAlign='center'>
               Sign in to your account
             </Header>
-            <LoginForm {...this.props} />
+            <LoginForm/>
           </Grid.Column>
         </Grid>
       </div>
